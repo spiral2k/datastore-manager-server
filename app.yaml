@@ -1,0 +1,19 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+  - url: /css
+    static_dir: www/css
+
+  - url: /js
+    static_dir: www/js
+
+  - url: /
+    static_files: www/index.html
+    upload: www/index.html
+    http_headers:
+      Access-Control-Allow-Origin: "*"
+
+  - url: /.*
+    script: main.application
